@@ -1,0 +1,60 @@
+{
+  "source_commit": "ccf617d1ba3147adfebcfdc49629e9e07d378b99",
+  "pyboy_version": "2.6.0",
+  "rom_sha256": "470d6c45c9bcf7f0397d00c1ae6de727c63dd471049c8eedbefdc540ceea80b4",
+  "training_options": {
+    "with_text_info": false,
+    "with_game_area": false,
+    "use_old_tick": false,
+    "use_simple_reward": true,
+    "epsilon": 0.0,
+    "cgb": false
+  },
+  "scope": "Actual emulator traces: screenshots, state text, frames, actions, rewards, termination, metadata, resets, and shared Python RNG. Each hash covers the complete ordered case record.",
+  "cases": {
+    "world1_level1": {
+      "action_steps": 30,
+      "sha256": "9b612331dbbf4a88cb536db6136eabe9407f871bd5e9a956d3e9dec618e3b5ca"
+    },
+    "world1_level2": {
+      "action_steps": 10,
+      "sha256": "cf40ba04aaffd66a3b17c99d6bf324040214dd6add5bedc7290b99701fa753cf"
+    },
+    "world1_level3": {
+      "action_steps": 30,
+      "sha256": "a7d1fcba0907b1e4797fbba3ab8e93b72b1fbf727c18934d0bdc537023a2eb63"
+    },
+    "world2_level1": {
+      "action_steps": 30,
+      "sha256": "dd466b41b01fc998d8c8e94f91abbc44873eea66a4242ba9148758212c942eca"
+    },
+    "world2_level2": {
+      "action_steps": 30,
+      "sha256": "504ea8e6bfb044c501e103b6768162e3e7fe605b38753b62327b588efc0880a3"
+    },
+    "world3_level1": {
+      "action_steps": 30,
+      "sha256": "9769e7684b36317abde8a15e6219992b844aad600ee6c4bc5b1b8c86caaf2d55"
+    },
+    "world3_level2": {
+      "action_steps": 30,
+      "sha256": "65727aa3e343096095e9b74e5e57b814957b421af59f38ba8d77fe0adedfbf30"
+    },
+    "world3_level3": {
+      "action_steps": 28,
+      "sha256": "d9590f8bb61cfde9397da3fda0ecda9967689c099a3ff0d6b8283e711a2e246d"
+    },
+    "world4_level1": {
+      "action_steps": 30,
+      "sha256": "ab4cd8c0447454f05c21a14c2fc5f67c585128ec9c64a8074986c97a22169a4b"
+    },
+    "world4_level2": {
+      "action_steps": 19,
+      "sha256": "7107c26acad8fe6c6733940a94e93bfe1d1e9d8d07f542e8efe980beaa44326e"
+    },
+    "pipe": {
+      "action_steps": 30,
+      "sha256": "7c362a62dfe4b3d533a34f5875fd265b0e6fa07e4417963cbf48aa34514b1e98"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+# Migrated from colm_jobs/slurm/pipe_abalation/qwen3_vl_8b_pipe_grpo_traj_outcome_pos.slurm
+defaults:
+- base_pipe
+- _self_
+- optional smoke: null
+algorithm:
+  adv_estimator: grpo_traj_outcome_pos
+data:
+  max_prompt_length: 2048
+  max_response_length: 1024
+actor_rollout_ref:
+  actor:
+    ppo_max_token_len_per_gpu: 3072
+  ref:
+    log_prob_max_token_len_per_gpu: 12288
+  rollout:
+    multi_turn:
+      markov_discount_factor: 1
+    max_model_len: 16384
+trainer:
+  save_freq: 10
+  test_freq: 20
+hydra:
+  searchpath:
+  - file://${oc.env:ODYSSEUS_VERL_ROOT}/verl/trainer/config

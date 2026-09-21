@@ -1,0 +1,28 @@
+# @package _global_
+# Short execution check; retains the selected algorithm and GPU topology.
+data:
+  train_files:
+  - ${oc.env:ODYSSEUS_DATA_ROOT}/smoke_pipe/train.parquet
+  val_files:
+  - ${oc.env:ODYSSEUS_DATA_ROOT}/smoke_pipe/test.parquet
+  train_batch_size: 8
+  max_response_length: 1024
+actor_rollout_ref:
+  actor:
+    ppo_mini_batch_size: 8
+  rollout:
+    agent:
+      num_workers: 4
+    multi_turn:
+      max_user_turns: 16
+      max_assistant_turns: 16
+critic:
+  ppo_mini_batch_size: 8
+trainer:
+  critic_warmup: 0
+  total_training_steps: 2
+  save_freq: 1
+  test_freq: 1
+  logger:
+  - console
+  log_val_generations: 2

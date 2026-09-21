@@ -1,0 +1,344 @@
+{
+  "source_commit": "40200aa6a3cac5391795af753eaab512529c1c15",
+  "scope": "Scripted CPU model/environment boundaries and inline tokenizer execution; excludes wall-clock metrics and normalizes validation timestamps.",
+  "scenarios": {
+    "text_termination": {
+      "sha256": "2166e70a10d6b8db0c4143fb7ba1d34d4009477f1e503d7b2fce58bb07a74148",
+      "outputs": 3,
+      "actions": [
+        [
+          "right"
+        ],
+        [
+          "right"
+        ],
+        [
+          "right"
+        ]
+      ],
+      "steps": 3,
+      "close_count": 1,
+      "error": null,
+      "turn_scores": [
+        6.5,
+        9.0,
+        8.0
+      ],
+      "validation_files": 0
+    },
+    "multimodal_validation": {
+      "sha256": "ce90a9bdaddd66741737adab04fbd998b00757de9a9c93932207ee4a57e351e7",
+      "outputs": 3,
+      "actions": [
+        [
+          "right"
+        ],
+        [
+          "right"
+        ],
+        [
+          "right"
+        ]
+      ],
+      "steps": 3,
+      "close_count": 1,
+      "error": null,
+      "turn_scores": [
+        6.5,
+        9.0,
+        8.0
+      ],
+      "validation_files": 6
+    },
+    "pipe_validation": {
+      "sha256": "75310422a7ce2e5f65b4cff09bb7582767c6de293f14ad731fac51322a1c8841",
+      "outputs": 3,
+      "actions": [
+        [
+          "right"
+        ],
+        [
+          "right"
+        ],
+        [
+          "right"
+        ]
+      ],
+      "steps": 3,
+      "close_count": 1,
+      "error": null,
+      "turn_scores": [
+        6.5,
+        9.0,
+        8.0
+      ],
+      "validation_files": 6
+    },
+    "two_turn_context": {
+      "sha256": "1710b5fc098f8c891b7e7c2b9f9842a5a33639eeb003506dc8399eeac009b36c",
+      "outputs": 3,
+      "actions": [
+        [
+          "right"
+        ],
+        [
+          "right"
+        ],
+        [
+          "right"
+        ]
+      ],
+      "steps": 3,
+      "close_count": 1,
+      "error": null,
+      "turn_scores": [
+        6.5,
+        9.0,
+        8.0
+      ],
+      "validation_files": 0
+    },
+    "malformed_actions": {
+      "sha256": "121bd695b0d0d824ebbc71445f49044463686b39b7d6a6158847549c6c3f0c0f",
+      "outputs": 5,
+      "actions": [
+        [
+          "invalid"
+        ],
+        [
+          "right"
+        ]
+      ],
+      "steps": 2,
+      "close_count": 1,
+      "error": null,
+      "turn_scores": [
+        -174.4375,
+        -148.875,
+        -97.75,
+        4.5,
+        5.0
+      ],
+      "validation_files": 0
+    },
+    "response_truncation": {
+      "sha256": "c3838e94c54e8dd29ff9bdaaa237270a9435bb84ced5980de0c02754182afa95",
+      "outputs": 3,
+      "actions": [],
+      "steps": 0,
+      "close_count": 1,
+      "error": null,
+      "turn_scores": [
+        -175.0,
+        -150.0,
+        -100.0
+      ],
+      "validation_files": 0
+    },
+    "assistant_limit": {
+      "sha256": "75de742286727f603f37b3ac3fcb0df70801cae9574a407cce0ccb418f109713",
+      "outputs": 2,
+      "actions": [
+        [
+          "right"
+        ],
+        [
+          "right"
+        ]
+      ],
+      "steps": 2,
+      "close_count": 1,
+      "error": null,
+      "turn_scores": [
+        4.5,
+        5.0
+      ],
+      "validation_files": 0
+    },
+    "user_limit": {
+      "sha256": "7f89069a1d65d7b3a150742810d5ba242cb391e5aea6bc0096e6b9979ebe04c4",
+      "outputs": 1,
+      "actions": [
+        [
+          "right"
+        ]
+      ],
+      "steps": 1,
+      "close_count": 1,
+      "error": null,
+      "turn_scores": [
+        2.0
+      ],
+      "validation_files": 0
+    },
+    "trailing_five_turns": {
+      "sha256": "8246a6d731e10786c4a0097ea3b6f3f8bd2ee045b0621e594653ff5eba1516a1",
+      "outputs": 3,
+      "actions": [
+        [
+          "right"
+        ],
+        [
+          "right"
+        ],
+        [
+          "right"
+        ],
+        [
+          "right"
+        ],
+        [
+          "right"
+        ],
+        [
+          "right"
+        ],
+        [
+          "right"
+        ],
+        [
+          "right"
+        ]
+      ],
+      "steps": 8,
+      "close_count": 1,
+      "error": null,
+      "turn_scores": [
+        9.7734375,
+        15.546875,
+        21.09375
+      ],
+      "validation_files": 6
+    },
+    "deferred_return_normalization": {
+      "sha256": "3a917812634f58d35da45b500cdafa4cb25b559ea1be31eed0a0bfe00954fd14",
+      "outputs": 3,
+      "actions": [
+        [
+          "right"
+        ],
+        [
+          "right"
+        ],
+        [
+          "right"
+        ]
+      ],
+      "steps": 3,
+      "close_count": 1,
+      "error": null,
+      "turn_scores": [
+        2.0,
+        5.0,
+        8.0
+      ],
+      "validation_files": 0
+    },
+    "without_logprobs": {
+      "sha256": "51fa2ac27211154022c8a7c4a5b5bfd043828fb5e31c24ab6e1898d6f0b6ffa3",
+      "outputs": 3,
+      "actions": [
+        [
+          "right"
+        ],
+        [
+          "right"
+        ],
+        [
+          "right"
+        ]
+      ],
+      "steps": 3,
+      "close_count": 1,
+      "error": null,
+      "turn_scores": [
+        6.5,
+        9.0,
+        8.0
+      ],
+      "validation_files": 0
+    },
+    "generation_failure": {
+      "sha256": "582f1ef536e9f819249e30f366335136699dd09c01b65cab5657daa998123ebd",
+      "outputs": 0,
+      "actions": [
+        [
+          "right"
+        ]
+      ],
+      "steps": 1,
+      "close_count": 1,
+      "error": "scripted generation failure",
+      "turn_scores": [],
+      "validation_files": 0
+    },
+    "environment_failure": {
+      "sha256": "ea83d4e27da013bc9d5f0fe015b9e434996c300fcc74f6e7e46af58bfab6a42b",
+      "outputs": 3,
+      "actions": [
+        [
+          "right"
+        ],
+        [
+          "right"
+        ],
+        [
+          "right"
+        ]
+      ],
+      "steps": 2,
+      "close_count": 1,
+      "error": null,
+      "turn_scores": [
+        -97.75,
+        4.5,
+        5.0
+      ],
+      "validation_files": 0
+    },
+    "environment_truncation": {
+      "sha256": "b5a9b41434df3a1a3a9c46434473cc33cb45e51a42d410eb2bf6c4fb895a407e",
+      "outputs": 2,
+      "actions": [
+        [
+          "right"
+        ],
+        [
+          "right"
+        ]
+      ],
+      "steps": 2,
+      "close_count": 1,
+      "error": null,
+      "turn_scores": [
+        4.5,
+        5.0
+      ],
+      "validation_files": 0
+    },
+    "weighted_training_level": {
+      "sha256": "d448a17ea553b52d141a46e342184de4fa356e257217a35192fe98e235214604",
+      "outputs": 3,
+      "actions": [
+        [
+          "right"
+        ],
+        [
+          "right"
+        ],
+        [
+          "right"
+        ]
+      ],
+      "steps": 3,
+      "close_count": 1,
+      "error": null,
+      "turn_scores": [
+        6.5,
+        9.0,
+        8.0
+      ],
+      "validation_files": 0
+    }
+  }
+}

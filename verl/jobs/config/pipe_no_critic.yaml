@@ -1,0 +1,25 @@
+# Migrated from colm_jobs/slurm/pipe_abalation/qwen3_vl_8b_pipe_no_critic.slurm
+defaults:
+- base_pipe
+- _self_
+- optional smoke: null
+algorithm:
+  adv_estimator: reinforce_plus_plus
+data:
+  max_prompt_length: 2048
+  max_response_length: 1024
+actor_rollout_ref:
+  actor:
+    ppo_max_token_len_per_gpu: 8192
+  ref:
+    log_prob_max_token_len_per_gpu: 32768
+  rollout:
+    multi_turn:
+      markov_discount_factor: 0.95
+    max_model_len: 32768
+trainer:
+  save_freq: 20
+  test_freq: 5
+hydra:
+  searchpath:
+  - file://${oc.env:ODYSSEUS_VERL_ROOT}/verl/trainer/config

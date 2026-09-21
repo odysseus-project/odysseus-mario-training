@@ -1,0 +1,75 @@
+# Shared Odysseus training defaults. Select a named experiment, not this file.
+defaults:
+- ppo_trainer
+- _self_
+hydra:
+  run:
+    dir: ${trainer.default_local_dir}
+  job:
+    chdir: false
+  output_subdir: null
+algorithm:
+  use_kl_in_reward: false
+  kl_ctrl:
+    kl_coef: 0.001
+  norm_adv_by_std_in_grpo: true
+data:
+  return_raw_chat: true
+  filter_overlong_prompts: true
+  truncation: error
+  custom_cls:
+    name: CustomRLHFDataset
+    path: ${oc.env:ODYSSEUS_VERL_ROOT}/recipe/game_agent/dataset.py
+actor_rollout_ref:
+  model:
+    use_remove_padding: true
+    enable_gradient_checkpointing: true
+    path: ${oc.env:ODYSSEUS_MODEL_PATH,Qwen/Qwen3-VL-8B-Instruct}
+  actor:
+    use_kl_loss: false
+    kl_loss_coef: 0.0
+    clip_ratio_low: 0.2
+    clip_ratio_high: 0.28
+    clip_ratio_c: 10.0
+    optim:
+      lr: 1.0e-06
+      lr_scheduler_type: constant
+    use_dynamic_bsz: true
+    ulysses_sequence_parallel_size: 1
+    fsdp_config:
+      param_offload: false
+      optimizer_offload: false
+  rollout:
+    name: vllm
+    mode: async
+    tensor_model_parallel_size: 1
+    multi_turn:
+      enable: true
+      tool_config_path: null
+      format: hermes
+      markov_context_turns: 1
+      defer_pixel_values: true
+    n: 1
+    val_kwargs:
+      top_p: 1.0
+      temperature: 1.0
+      n: 1
+    enable_prefix_caching: false
+    enforce_eager: true
+trainer:
+  balance_batch: false
+  logger:
+  - console
+  - wandb
+  project_name: game_agent
+  val_before_train: true
+  log_val_generations: 20
+  total_epochs: 500
+  experiment_name: ${oc.env:ODYSSEUS_RUN_NAME,odysseus}
+  default_local_dir: ${oc.env:ODYSSEUS_RUN_DIR}
+  rollout_data_dir: ${trainer.default_local_dir}/rollouts
+  validation_data_dir: ${trainer.default_local_dir}/validation
+critic:
+  enable: false
+release:
+  check_only: false

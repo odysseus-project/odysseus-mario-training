@@ -1,0 +1,5 @@
+class_name: verl.utils.game_envs.super_mario_land.PyBoySuperMarioLandEnv
+config:
+  rom_path: ${oc.env:ODYSSEUS_ROM_PATH}
+  init_state: ${oc.env:ODYSSEUS_PIPE_STATE}
+  headless: true

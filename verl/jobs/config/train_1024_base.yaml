@@ -1,0 +1,61 @@
+# Migrated from colm_jobs/slurm/5_levels_train_10_levels_eval_1024_base.slurm
+defaults:
+- base_game
+- _self_
+- optional smoke: null
+- override critic: cnn_critic
+algorithm:
+  adv_estimator: reinforce_plus_plus_pos
+data:
+  train_batch_size: 1024
+  max_prompt_length: 4096
+  max_response_length: 4096
+  train_files:
+  - ${oc.env:ODYSSEUS_DATA_ROOT}/super_mario_land_markov_1024_train_1024_test/train.parquet
+  val_files:
+  - ${oc.env:ODYSSEUS_DATA_ROOT}/super_mario_land_markov_1024_train_1024_test/test.parquet
+actor_rollout_ref:
+  actor:
+    ppo_mini_batch_size: 4096
+    ppo_max_token_len_per_gpu: 8192
+  ref:
+    log_prob_max_token_len_per_gpu: 32768
+  rollout:
+    agent:
+      num_workers: 64
+      update_world_level_weights: true
+    multi_turn:
+      max_user_turns: 400
+      max_assistant_turns: 400
+      markov_discount_factor: 0.95
+      game_config_path: ${oc.env:ODYSSEUS_VERL_ROOT}/jobs/config/5_levels_train_10_levels_eval_env_simple_gray_config.yaml
+    gpu_memory_utilization: 0.8
+    max_model_len: 32768
+critic:
+  enable: true
+  model:
+    architecture: nature
+    input_channels: 3
+    input_height: 144
+    input_width: 160
+    hidden_dim: 512
+    image_key: pixel_values
+  lr: 0.0003
+  weight_decay: 0.0
+  ppo_mini_batch_size: 4096
+  ppo_epochs: 1
+  grad_clip: 1.0
+  cliprange_value: 0.2
+  loss_agg_mode: mean
+trainer:
+  critic_warmup: 5
+  n_gpus_per_node: 8
+  nnodes: 2
+  save_freq: 5
+  test_freq: 5
+ray_kwargs:
+  ray_init:
+    address: ${oc.env:RAY_ADDRESS,auto}
+hydra:
+  searchpath:
+  - file://${oc.env:ODYSSEUS_VERL_ROOT}/verl/trainer/config

@@ -1,0 +1,23 @@
+defaults:
+- base_game
+- _self_
+data:
+  train_batch_size: 128
+  train_files:
+  - ${oc.env:ODYSSEUS_DATA_ROOT}/super_mario_land_markov_1024_train_128_test/train.parquet
+  val_files:
+  - ${oc.env:ODYSSEUS_DATA_ROOT}/super_mario_land_markov_1024_train_128_test/test.parquet
+actor_rollout_ref:
+  actor:
+    ppo_mini_batch_size: 512
+  rollout:
+    agent:
+      num_workers: 32
+    multi_turn:
+      max_user_turns: 80
+      max_assistant_turns: 80
+      game_config_path: ${oc.env:ODYSSEUS_VERL_ROOT}/jobs/config/pipe_env_simple_gray_config.yaml
+    gpu_memory_utilization: 0.6
+trainer:
+  n_gpus_per_node: 4
+  nnodes: 1
